@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+<link href="~/lib/trumbowyg-main/dist/ui/trumbowyg.min.css" rel="stylesheet" />
 <h3>Edit a Post</h3>
 
 <form asp-action="Edit" method="post">
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="Content">Content</label>
-        <input type="text" class="form-control" asp-for="Content" />
+        <textarea id="editor" asp-for="Content"></textarea>
     </div>
     <div class="form-group">
         <label for="Author">Author</label>
@@ -28,3 +28,10 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+@section Scripts {
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/lib/trumbowyg-main/dist/trumbowyg.min.js"></script>
+    <script>$('#editor').trumbowyg();</script>
+}

@@ -60,6 +60,7 @@ namespace centuras.org.Controllers
             Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
             return View(post);
         }
+
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -70,6 +71,26 @@ namespace centuras.org.Controllers
                 await context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Post(int id)
+        {
+            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
+            return View(post);
+        }
+        public async Task<IActionResult> Pathfinder(int id)
+        {
+            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
+            return View(post);
+        }
+        public async Task<IActionResult> Games(int id)
+        {
+            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
+            return View(post);
+        }
+        public async Task<IActionResult> News(int id)
+        {
+            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
+            return View(post);
         }
     }
 }
