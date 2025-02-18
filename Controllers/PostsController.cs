@@ -77,20 +77,5 @@ namespace centuras.org.Controllers
             Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
             return View(post);
         }
-        public async Task<IActionResult> Pathfinder(int id)
-        {
-            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
-            return View(post);
-        }
-        public async Task<IActionResult> Games(int id)
-        {
-            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
-            return View(post);
-        }
-        public async Task<IActionResult> News(int id)
-        {
-            Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
-            return View(post);
-        }
     }
 }
