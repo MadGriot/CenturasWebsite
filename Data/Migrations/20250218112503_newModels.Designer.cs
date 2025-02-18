@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using centuras.org.Data;
 
@@ -11,9 +12,11 @@ using centuras.org.Data;
 namespace centuras.org.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250218112503_newModels")]
+    partial class newModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,23 +242,6 @@ namespace centuras.org.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "News"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Pathfinder"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Games"
-                        });
                 });
 
             modelBuilder.Entity("centuras.org.Models.Post", b =>
@@ -269,9 +255,6 @@ namespace centuras.org.Data.Migrations
                     b.Property<string>("Author")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -288,8 +271,6 @@ namespace centuras.org.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Posts");
                 });
@@ -343,15 +324,6 @@ namespace centuras.org.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("centuras.org.Models.Post", b =>
-                {
-                    b.HasOne("centuras.org.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
