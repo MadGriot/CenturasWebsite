@@ -1,0 +1,32 @@
+﻿@model List<centuras.org.Models.Game>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Index</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Game game in Model)
+        {
+            <tr>
+                <td><a asp-action="Game" asp-route-id="@game.Id">@game.Title</a></td>
+                <td>@game.Author</td>
+                <td>@game.CreatedDate</td>
+                <td>@game.UpdatedDate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@game.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

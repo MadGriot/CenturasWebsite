@@ -14,14 +14,15 @@ public class ApplicationDbContext : IdentityDbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Category>().HasData(
-            new Category { Id = 1, Name = "News"},
-            new Category { Id = 2, Name = "Pathfinder"},
-            new Category { Id = 3, Name = "Games"}
+            new Category { Id = 1, Name = "One-Shot"},
+            new Category { Id = 2, Name = "Adventure"},
+            new Category { Id = 3, Name = "Campaign"}
             );
 
         base.OnModelCreating(builder);
     }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Game> Games { get; set; }
 
 }
