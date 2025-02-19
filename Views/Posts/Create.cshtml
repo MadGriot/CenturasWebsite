@@ -19,6 +19,11 @@
         <input type="text" class="form-control" asp-for="Author" />
     </div>
     <div class="form-group">
+        <label for="CoverImage">Choose Image</label>
+        <input type="file" class="custom-file-input" asp-for="CoverImage" id="customFile" />
+        <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+    <div class="form-group">
         <label for="CategoryId">Category</label>
         <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control"></select>
     </div>

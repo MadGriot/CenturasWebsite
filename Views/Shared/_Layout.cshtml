@@ -20,10 +20,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="Index">Pathfinder</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Pathfinder">Pathfinder</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="Index">Games</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Games</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="Index">About</a>
@@ -44,8 +44,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - centuras.org - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container" align="center">
+            &copy; 2022-@DateTime.Now.Year Centuras 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

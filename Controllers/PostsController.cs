@@ -77,5 +77,6 @@ namespace centuras.org.Controllers
             Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
             return View(post);
         }
+
     }
 }

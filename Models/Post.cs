@@ -10,6 +10,7 @@ namespace centuras.org.Models
         public string Author { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public byte[] CoverImage { get; set; } = null!;
         public int? CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category? Category { get; set; }
