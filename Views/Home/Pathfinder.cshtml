@@ -1,0 +1,33 @@
+﻿@model List<centuras.org.Models.Post>
+@{
+    ViewData["Title"] = "Pathfinder";
+    int oneShots = Model.Count(c => c.Category?.Id == 1);
+    int adventures = Model.Count(c => c.Category?.Id == 2);
+    int campaigns = Model.Count(c => c.Category?.Id == 3);
+}
+
+<table class="table">
+    <thead>
+        <h3>Pathfinder Modules</h3>
+    </thead>
+    <tbody>
+        @if(oneShots > 0)
+        {
+            <tr>
+                <td><a asp-action="Library" asp-route-id="1">One-Shots</a></td>
+            </tr>
+        }
+        @if (adventures > 0)
+        {
+            <tr>
+                <td><a asp-action="Library" asp-route-id="2">Adventures</a></td>
+            </tr>
+        }
+        @if (campaigns > 0)
+        {
+            <tr>
+                <td><a asp-action="Library" asp-route-id="3">Campaigns</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

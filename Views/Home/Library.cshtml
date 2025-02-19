@@ -1,0 +1,40 @@
+﻿@model List<centuras.org.Models.Post>
+@{
+    ViewData["Title"] = "Pathfinder Modules";
+}
+
+<table class="table">
+    <thead>
+        
+    </thead>
+    <tbody>
+        @foreach (Post post in Model)
+        {
+            <tr>
+                <td><a asp-action="Post" asp-controller="Posts" asp-route-id="@post.Id">@post.Title</a></td>
+                <td>@post.Author</td>
+                <td>@post.CreatedDate</td>
+                <td>@post.UpdatedDate</td>
+                <td>@post.Category?.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="cards_container">
+    <div class="card_container">
+        <article class="card_article">
+            <div class="card_data">
+                <span class="card_description"></span>
+                <h2 class="card_title">Title</h2>
+                <a href="#" class="card_button"></a>
+            </div>
+        </article>
+        <article class="card_article">
+            <div class="card_data">
+                <span class="card_description"></span>
+                <h2 class="card_title">Title</h2>
+                <a href="#" class="card_button"></a>
+            </div>
+        </article>
+    </div>
+</div>
