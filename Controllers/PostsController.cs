@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace centuras.org.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = Roles.Administrator)]
     public class PostsController : Controller
     {
         private readonly ApplicationDbContext context;
