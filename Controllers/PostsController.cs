@@ -1,11 +1,13 @@
 ﻿using centuras.org.Data;
 using centuras.org.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace centuras.org.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class PostsController : Controller
     {
         private readonly ApplicationDbContext context;

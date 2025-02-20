@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace centuras.org.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
@@ -39,16 +39,19 @@ public class ApplicationDbContext : IdentityDbContext
                 NormalizedName = "ADMINISTRATOR"
             });
 
-        PasswordHasher<IdentityUser> hahser = new PasswordHasher<IdentityUser>();
-        builder.Entity<IdentityUser>().HasData(
-            new IdentityUser
+        PasswordHasher<ApplicationUser> hahser = new PasswordHasher<ApplicationUser>();
+        builder.Entity<ApplicationUser>().HasData(
+            new ApplicationUser
             {
                 Id = "092e8775-aaa5-4ea6-9ccc-a9fa1e39d1a0",
                 Email = "tpscott@centuras.org",
                 NormalizedEmail = "TPSCOTT@CENTURAS.ORG",
-                UserName = "tpscott",
-                NormalizedUserName = "TPSCOTT",
-                PasswordHash= hahser.HashPassword(null, "OpenUp63!"),
+                UserName = "tpscott@centuras.org",
+                NormalizedUserName = "TPSCOTT@CENTURAS.ORG",
+                FirstName = "Trenton",
+                LastName = "Scott",
+                DateOfBirth = new DateOnly(1988,08,19),
+                PasswordHash = hahser.HashPassword(null, "OpenUp63!"),
                 EmailConfirmed = true
             });
 
@@ -57,7 +60,7 @@ public class ApplicationDbContext : IdentityDbContext
                 {
                     //Same as admin role
                     RoleId = "88c66549-aabb-4e28-a8cb-c37b0303d932",
-                    //Same as the IdentityUser from above
+                    //Same as the ApplicationUser from above
                     UserId = "092e8775-aaa5-4ea6-9ccc-a9fa1e39d1a0"
                 }
             );
