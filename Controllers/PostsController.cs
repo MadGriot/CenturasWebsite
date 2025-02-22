@@ -1,5 +1,6 @@
 ﻿using centuras.org.Data;
 using centuras.org.Models;
+using centuras.org.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,10 +11,12 @@ namespace centuras.org.Controllers
     [Authorize(Roles = Roles.Administrator)]
     public class PostsController : Controller
     {
+        private readonly IFileService fileService;
         private readonly ApplicationDbContext context;
-        public PostsController(ApplicationDbContext context)
+        public PostsController(ApplicationDbContext context, IFileService fileService)
         {
             this.context = context;
+            this.fileService = fileService;
         }
         public async Task<IActionResult> Index()
         {
@@ -28,12 +31,15 @@ namespace centuras.org.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id, Title, Content, Author, CreatedDate, UpdatedDate, CategoryId")] Post post)
+        public async Task<IActionResult> Create([Bind("Id, Title, Content, RawImage, Author, CategoryId")] Post post)
         {
             if (ModelState.IsValid)
             {
                 post.CreatedDate = DateTime.Now;
-                context.Posts.Add(post);
+                string[] extensions = { ".jpg", ".jpeg", ".png" };
+                if (post.RawImage != null)
+                    post.CoverImage = await fileService.SaveFile(post.RawImage, "images", extensions);
+                await context.Posts.AddAsync(post);
                 await context.SaveChangesAsync();
                 return RedirectToAction("index");
             }
@@ -69,6 +75,8 @@ namespace centuras.org.Controllers
             Post item = await context.Posts.FindAsync(id);
             if (item != null)
             {
+                if (item.CoverImage != null)
+                    fileService.DeleteFile(item.CoverImage, "images");
                 context.Posts.Remove(item);
                 await context.SaveChangesAsync();
             }

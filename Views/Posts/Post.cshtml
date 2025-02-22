@@ -4,6 +4,14 @@
 }
 
 
+@if(!string.IsNullOrWhiteSpace(Model.CoverImage))
+{
+    <img alt="Cover image" src="~/images/@Model.CoverImage"/>
+}
+else
+{
+    <span>No image</span>
+}
 
 <div >
     @Html.Raw(Model.Content)

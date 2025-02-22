@@ -266,7 +266,7 @@ namespace centuras.org.Data.Migrations
                         {
                             Id = "092e8775-aaa5-4ea6-9ccc-a9fa1e39d1a0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d7c89bf4-484d-409e-be06-7ce48e2f7059",
+                            ConcurrencyStamp = "8d3e6088-8c44-48eb-b19d-f3c33ff66593",
                             DateOfBirth = new DateOnly(1988, 8, 19),
                             Email = "tpscott@centuras.org",
                             EmailConfirmed = true,
@@ -275,9 +275,9 @@ namespace centuras.org.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TPSCOTT@CENTURAS.ORG",
                             NormalizedUserName = "TPSCOTT@CENTURAS.ORG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEnUtnXfVd7wQtsVQlzug3TU3v5MtfYYVL1J+QWWICjiYS8uafcbPraUoJayWk9LMA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKxh6rmFSH88faWJdY7p/TA/Z1Cb3XftvsiorhLRltiE2jRQVJQGUs1UrLjG41Da0g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9745ceef-c53a-43b6-9793-a63777ee909e",
+                            SecurityStamp = "45fb91e4-12de-4866-b96f-9de9cc662d53",
                             TwoFactorEnabled = false,
                             UserName = "tpscott@centuras.org"
                         });
@@ -367,9 +367,8 @@ namespace centuras.org.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CoverImage")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");

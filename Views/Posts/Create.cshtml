@@ -5,7 +5,7 @@
 <link href="~/lib/trumbowyg-main/dist/ui/trumbowyg.min.css" rel="stylesheet" />
 <h3>Create a Post</h3>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" enctype="multipart/form-data" method="post">
     <div class="form-group">
         <label for="Title">Title</label>
         <input type="text" class="form-control" asp-for="Title" />
@@ -19,9 +19,8 @@
         <input type="text" class="form-control" asp-for="Author" />
     </div>
     <div class="form-group">
-        <label for="CoverImage">Choose Image</label>
-        <input type="file" class="custom-file-input" asp-for="CoverImage" id="customFile" />
-        <label class="custom-file-label" for="customFile">Choose file</label>
+        <label for="RawImage">Choose Image</label>
+        <input type="file" class="form-control" asp-for="RawImage"  />
     </div>
     <div class="form-group">
         <label for="CategoryId">Category</label>
