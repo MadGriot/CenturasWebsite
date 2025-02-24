@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/centuras.org.styles.css" asp-append-version="true" />
+    @await Html.PartialAsync("_Favicons")
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark  box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Centuras</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/white_on_trans _scaled.png" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,11 +26,11 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Pathfinder">Pathfinder</a>
                         </li>
                          <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Games</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Games">Games</a>
                         </li>              
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="Index">About</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="Index">Contact</a>
@@ -50,9 +53,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class=" bg-dark footer text-muted">
         <div class="container" align="center">
-            &copy; 2022-@DateTime.Now.Year Centuras 
+            &copy; 2022-@DateTime.Now.Year Centuras. All Rights Reserved
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

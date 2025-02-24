@@ -21,11 +21,21 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult About()
+    {
+        return View();
+    }
     public async Task<IActionResult> Pathfinder()
     {
         List<Post> posts = await context.Posts.Include(s => s.Category)
                                                     .ToListAsync();
         return View(posts);
+    }
+    public async Task<IActionResult> Games()
+    {
+        List<Game> games = await context.Games.ToListAsync();
+        return View(games);
     }
 
     public async Task<IActionResult> Library(int id)

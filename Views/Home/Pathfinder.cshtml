@@ -6,28 +6,64 @@
     int campaigns = Model.Count(c => c.Category?.Id == 3);
 }
 
-<table class="table">
-    <thead>
-        <h3>Pathfinder Modules</h3>
-    </thead>
-    <tbody>
-        @if(oneShots > 0)
+<div class="container" align="center">
+    <h3>Pathfinder Modules</h3>
+    <br/>
+    <br/>
+
+    <div class="row g-3">
+        @if (oneShots > 0)
         {
-            <tr>
-                <td><a asp-action="Library" asp-route-id="1">One-Shots</a></td>
-            </tr>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a asp-action="Library" asp-route-id="1" style="text-decoration:none; color:inherit">
+                    <div class="card bg-dark">
+                        <img src="#" alt="One Shot Image" class="card-img-top" />
+                        <div class="card-body" align="center">
+                            <h5 class="card-title">Pathfinder One-Shots</h5>
+                            <p class="card-text">lsf;jadsa;df;sfadjkldfj;kafsljdskj;fadlkjlkljasflkjasdf
+                                alskdfj;lasdfjsadl;fkjsdafjlksadlfjk;sdafkljsadfjjjkasdfklsdlkfjlj
+                                fjladsk;jfadslfkasdjfljkasfd
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         }
         @if (adventures > 0)
         {
-            <tr>
-                <td><a asp-action="Library" asp-route-id="2">Adventures</a></td>
-            </tr>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a asp-action="Library" asp-route-id="2" style="text-decoration:none; color:inherit">
+                    <div class="card bg-dark">
+                        <img src="#" alt="One Shot Image" class="card-img-top" />
+                        <div class="card-body" align="center">
+                            <h5 class="card-title">Pathfinder Adventures</h5>
+                            <p class="card-text">
+                                lsf;jadsa;df;sfadjkldfj;kafsljdskj;fadlkjlkljasflkjasdf
+                                alskdfj;lasdfjsadl;fkjsdafjlksadlfjk;sdafkljsadfjjjkasdfklsdlkfjlj
+                                fjladsk;jfadslfkasdjfljkasfd
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         }
         @if (campaigns > 0)
         {
-            <tr>
-                <td><a asp-action="Library" asp-route-id="3">Campaigns</a></td>
-            </tr>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a asp-action="Library" asp-route-id="3" style="text-decoration:none; color:inherit">
+                <div class="card bg-dark">
+                    <img src="#" alt="One Shot Image" class="card-img-top" />
+                    <div class="card-body" align="center">
+                        <h5 class="card-title">Pathfinder Campaigns</h5>
+                        <p class="card-text">
+                            lsf;jadsa;df;sfadjkldfj;kafsljdskj;fadlkjlkljasflkjasdf
+                            alskdfj;lasdfjsadl;fkjsdafjlksadlfjk;sdafkljsadfjjjkasdfklsdlkfjlj
+                            fjladsk;jfadslfkasdjfljkasfd
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>

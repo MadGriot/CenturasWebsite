@@ -12,7 +12,7 @@ namespace centuras.org.Models
         public DateTime? UpdatedDate { get; set; }
         public string? CoverImage { get; set; }
         [NotMapped]
-        public IFormFile RawImage { get; set; }
+        public IFormFile? RawImage { get; set; }
         public int? CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category? Category { get; set; }

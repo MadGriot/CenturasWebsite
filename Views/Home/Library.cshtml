@@ -3,38 +3,26 @@
     ViewData["Title"] = "Pathfinder Modules";
 }
 
-<table class="table">
-    <thead>
-        
-    </thead>
-    <tbody>
+<div class="container" align="center">
+    <h3>@Model.First().Category?.Name</h3>
+    <br/>
+    <br/>
+    <div class="row g-3">
         @foreach (Post post in Model)
         {
-            <tr>
-                <td><a asp-action="Post" asp-controller="Posts" asp-route-id="@post.Id">@post.Title</a></td>
-                <td>@post.Author</td>
-                <td>@post.CreatedDate</td>
-                <td>@post.UpdatedDate</td>
-                <td>@post.Category?.Name</td>
-            </tr>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a asp-action="Post" asp-controller="Posts" asp-route-id="@post.Id" style="text-decoration:none; color:inherit">
+                    <div class="card bg-dark">
+                        <img src="#" alt="One Shot Image" class="card-img-top" />
+                        <div class="card-body" align="center">
+                            <h5 class="card-title">@post.Title</h5>
+                            <p class="card-text">
+                                @post.CreatedDate.Year - @post.CreatedDate.Month.ToString() - @post.CreatedDate.Day
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         }
-    </tbody>
-</table>
-<div class="cards_container">
-    <div class="card_container">
-        <article class="card_article">
-            <div class="card_data">
-                <span class="card_description"></span>
-                <h2 class="card_title">Title</h2>
-                <a href="#" class="card_button"></a>
-            </div>
-        </article>
-        <article class="card_article">
-            <div class="card_data">
-                <span class="card_description"></span>
-                <h2 class="card_title">Title</h2>
-                <a href="#" class="card_button"></a>
-            </div>
-        </article>
     </div>
 </div>

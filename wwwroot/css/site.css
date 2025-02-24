@@ -19,6 +19,7 @@ html {
 
 body {
   background-color: rgb(10, 1, 12);
+  color: white;
   margin-bottom: 60px;
 }
 
@@ -29,18 +30,36 @@ body {
     padding-block: 5rem;
 }
 
-.card_container {
-    display: grid;
-    row-gap: 3.5rem;
+
+.nav-link {
+    transition: all 0.2s;
+    position: relative;
 }
 
-.card_article {
-    position: relative
+.nav-link::after {
+    content: '';
+    opacity: 0;
+    transition: all 0.2s;
+    height: 2px;
+    width: 100%;
+    background-color: blueviolet;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
-.card_data {
-    width: 280px;
-    background-color: var(--container-color);
-    padding: 1.5rem 2rem;
-    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+.nav-link:active::after {
+    opacity: 1;
+}
+
+a:link {
+    color: mediumpurple;
+}
+
+a:visited {
+    color: gold;
 }

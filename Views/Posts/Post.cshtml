@@ -1,18 +1,27 @@
 ﻿@model centuras.org.Models.Post
 @{
     ViewData["Title"] = Model.Title;
+    DateTime date = Model.CreatedDate;
+    DateTime? updatedDate = Model.UpdatedDate;
 }
 
 
-@if(!string.IsNullOrWhiteSpace(Model.CoverImage))
+@* @if(!string.IsNullOrWhiteSpace(Model.CoverImage))
 {
     <img alt="Cover image" src="~/images/@Model.CoverImage"/>
 }
 else
 {
     <span>No image</span>
-}
+} *@
 
-<div >
+<div class="container">
     @Html.Raw(Model.Content)
+    <hr />
+    <p><b>Author:</b> @Model.Author</p>
+    <p><b>Posted:</b> @date.ToString("MMMM") @date.Day, @date.Year</p>
+    @if (updatedDate != null)
+    {
+        <p><i>Updated: @updatedDate?.ToString("MMMM") @updatedDate?.Day, @updatedDate?.Year</i></p>
+    }
 </div>

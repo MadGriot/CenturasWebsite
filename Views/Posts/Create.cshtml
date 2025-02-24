@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
         <label for="Author">Author</label>
-        <input type="text" class="form-control" asp-for="Author" value="@UserManager.GetUserAsync(User).Result?.FirstName @UserManager.GetUserAsync(User).Result?.LastName" disabled />
+        <input type="text" class="form-control" asp-for="Author" value="@UserManager.GetUserAsync(User).Result?.FirstName @UserManager.GetUserAsync(User).Result?.LastName" />
     </div>
     <div class="form-group">
         <label for="RawImage">Choose Image</label>
