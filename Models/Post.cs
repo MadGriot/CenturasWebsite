@@ -6,6 +6,7 @@ namespace centuras.org.Models
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
+        public string? Description { get; set; }
         public string Content { get; set; } = null!;
         public string Author { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
@@ -13,6 +14,9 @@ namespace centuras.org.Models
         public string? CoverImage { get; set; }
         [NotMapped]
         public IFormFile? RawImage { get; set; }
+        public string? ZipPath { get; set; } = null!;
+        [NotMapped]
+        public IFormFile? ZipFile { get; set; } = null!;
         public int? CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category? Category { get; set; }

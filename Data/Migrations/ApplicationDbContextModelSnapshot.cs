@@ -266,7 +266,7 @@ namespace centuras.org.Data.Migrations
                         {
                             Id = "092e8775-aaa5-4ea6-9ccc-a9fa1e39d1a0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d3e6088-8c44-48eb-b19d-f3c33ff66593",
+                            ConcurrencyStamp = "09c0b7aa-151b-4da2-9d9e-41e1622075c3",
                             DateOfBirth = new DateOnly(1988, 8, 19),
                             Email = "tpscott@centuras.org",
                             EmailConfirmed = true,
@@ -275,9 +275,9 @@ namespace centuras.org.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TPSCOTT@CENTURAS.ORG",
                             NormalizedUserName = "TPSCOTT@CENTURAS.ORG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKxh6rmFSH88faWJdY7p/TA/Z1Cb3XftvsiorhLRltiE2jRQVJQGUs1UrLjG41Da0g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF9LWDvVxGOHvw9dAItpcb7vDPzK9yC5SqEZQi/332M4KaZg9k/h8g4HEey1Hv5d8A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "45fb91e4-12de-4866-b96f-9de9cc662d53",
+                            SecurityStamp = "e678122e-3ce0-438b-9b05-b83415243a22",
                             TwoFactorEnabled = false,
                             UserName = "tpscott@centuras.org"
                         });
@@ -336,6 +336,9 @@ namespace centuras.org.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -373,12 +376,18 @@ namespace centuras.org.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ZipPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

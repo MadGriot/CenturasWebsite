@@ -17,15 +17,18 @@
         @if (oneShots > 0)
         {
             <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card bg-dark">
+                    <div class="card bg-dark h-100">
                         <div class="card-body" align="center">
                             <h5 class="card-title">Pathfinder One-Shots</h5>
                             <p class="card-text">A short adventure path that usually takes one or two sessions.
                             </p>
-                            <a asp-action="Library" asp-route-id="3"
-                               style="text-decoration:none; color:inherit" class="btn btn-primary">
+
+                        </div>
+                        <div class="card-footer" align="center">
+                        <a asp-action="Library" asp-route-id="1"
+                           style="text-decoration:none; color:inherit" class="btn btn-primary">
                             List of One-Shots
-                            </a>
+                        </a>
                         </div>
                     </div>
             </div>
@@ -33,17 +36,20 @@
         @if (adventures > 0)
         {
             <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card bg-dark">
+                <div class="card bg-dark h-100">
                         <div class="card-body" align="center">
                             <h5 class="card-title">Pathfinder Adventures</h5>
                             <p class="card-text">
                                 An adventure path that usually includes 2-3 towns along with 2-3 dungeons. Usually
                                 takes 4-10 sessions.
                             </p>
-                            <a asp-action="Library" asp-route-id="3"
-                               style="text-decoration:none; color:inherit" class="btn btn-primary">
-                                List of Adventures
-                            </a>
+
+                        </div>
+                        <div class="card-footer" align="center">
+                        <a asp-action="Library" asp-route-id="2"
+                           style="text-decoration:none; color:inherit" class="btn btn-primary">
+                            List of Adventures
+                        </a>
                         </div>
                     </div>
             </div>
@@ -51,7 +57,7 @@
         @if (campaigns > 0)
         {
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card bg-dark">
+                <div class="card bg-dark h-100">
                     <div class="card-body" align="center">
                         <h5 class="card-title">Pathfinder Campaigns</h5>
                         <p class="card-text">

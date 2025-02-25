@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Post post in Model)
+        @foreach (Post post in Model.OrderByDescending(x => x.CreatedDate))
         {
             <tr>
                 <td><a asp-action="Post" asp-route-id="@post.Id">@post.Title</a></td>

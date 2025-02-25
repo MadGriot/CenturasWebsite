@@ -13,6 +13,10 @@
         <input type="text" class="form-control" asp-for="Title" />
     </div>
     <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" rows="5" asp-for="Description" ></textarea>
+    </div>
+    <div class="form-group">
         <label for="Content">Content</label>
         <textarea id="editor" asp-for="Content"></textarea>
     </div>
@@ -23,6 +27,10 @@
     <div class="form-group">
         <label for="RawImage">Choose Image</label>
         <input type="file" class="form-control" asp-for="RawImage"  />
+    </div>
+    <div class="form-group">
+        <label for="ZipFile">Module file (zip)</label>
+        <input type="file" class="form-control" asp-for="ZipFile" />
     </div>
     <div class="form-group">
         <label for="CategoryId">Category</label>

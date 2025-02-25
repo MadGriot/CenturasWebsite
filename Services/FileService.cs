@@ -1,8 +1,10 @@
-﻿namespace centuras.org.Services
+﻿
+namespace centuras.org.Services
 {
     public interface IFileService
     {
         void DeleteFile(string fileName, string directory);
+        Task<(byte[], string, string)> DownloadFile(string fileName, string directory);
         Task<string> SaveFile(IFormFile file, string directory, string[] allowedExtensions);
     }
 
@@ -48,6 +50,22 @@
                 throw new FileNotFoundException($"File {fileName} does not exists");
             }
             File.Delete(fullPath);
+        }
+
+        public async Task<(byte[], string, string)> DownloadFile(string fileName, string directory)
+        {
+            try
+            {
+                string fullPath = Path.Combine(webHostEnvironment.WebRootPath, directory,
+                    fileName);
+                byte[] bytes = await File.ReadAllBytesAsync(fullPath);
+                return (bytes, "application/octet-stream", fileName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

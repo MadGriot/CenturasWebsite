@@ -6,20 +6,28 @@
 }
 
 
-@* @if(!string.IsNullOrWhiteSpace(Model.CoverImage))
+@if(!string.IsNullOrWhiteSpace(Model.CoverImage))
 {
     <img alt="Cover image" src="~/images/@Model.CoverImage"/>
 }
 else
 {
     <span>No image</span>
-} *@
+}
 
 <div class="container">
+    <div class="row" align="right">
+        <div class="col-sm">
+            <form asp-action="Download" method="get" >
+            <input type="hidden" asp-for="Id" />
+                <input type="submit" class="btn btn-primary" value="Download Module" />
+            </form>
+        </div>
+    </div>
     @Html.Raw(Model.Content)
-    <hr />
-    <p><b>Author:</b> @Model.Author</p>
-    <p><b>Posted:</b> @date.ToString("MMMM") @date.Day, @date.Year</p>
+    <hr color="white"/>
+    <p>Written by @Model.Author</p>
+    <p>Posted on @date.ToString("MMMM") @date.Day, @date.Year</p>
     @if (updatedDate != null)
     {
         <p><i>Updated: @updatedDate?.ToString("MMMM") @updatedDate?.Day, @updatedDate?.Year</i></p>

@@ -5,10 +5,14 @@
 <link href="~/lib/trumbowyg-main/dist/ui/trumbowyg.min.css" rel="stylesheet" />
 <h3>Edit a Post</h3>
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
     <div class="form-group">
         <label for="Title">Title</label>
         <input type="text" class="form-control" asp-for="Title" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" rows="5" asp-for="Description"></textarea>
     </div>
     <div class="form-group">
         <label for="Content">Content</label>
@@ -19,6 +23,22 @@
         <input type="text" class="form-control" asp-for="Author" />
     </div>
     <div class="form-group">
+        <label for="RawImage">Choose Image</label>
+        <input type="file" class="form-control" asp-for="RawImage" />
+    </div>
+    <div hidden class="form-group">
+        <label for="CoverImage">Image</label>
+        <input type="text" class="form-control" asp-for="CoverImage" />
+    </div>
+    <div class="form-group">
+        <label for="ZipFile">Choose Module</label>
+        <input type="file" class="form-control" asp-for="ZipFile" />
+    </div>
+    <div hidden class="form-group">
+        <label for="ZipPath">Module</label>
+        <input type="text" class="form-control" asp-for="ZipPath" />
+    </div>
+    <div hidden class="form-group">
         <label for="CreatedDate">Created Date</label>
         <input type="datetime" class="form-control" asp-for="CreatedDate" />
     </div>
