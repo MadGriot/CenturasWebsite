@@ -31,7 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\modules\" />
+    <Folder Include="wwwroot\games\" />
   </ItemGroup>
 
 </Project>

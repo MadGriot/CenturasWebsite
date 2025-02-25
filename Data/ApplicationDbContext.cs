@@ -11,7 +11,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
-
+    public DbSet<Post> Posts { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Game> Games { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Category>().HasData(
@@ -66,8 +68,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             );
         base.OnModelCreating(builder);
     }
-    public DbSet<Post> Posts { get; set; }
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Game> Games { get; set; }
+
 
 }

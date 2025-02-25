@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace centuras.org.Models
 {
     public class Game
@@ -10,5 +12,11 @@ namespace centuras.org.Models
         public string Author { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public string? CoverImage { get; set; }
+        [NotMapped]
+        public IFormFile? RawImage { get; set; }
+        public string? ZipPath { get; set; } = null!;
+        [NotMapped]
+        public IFormFile? ZipFile { get; set; } = null!;
     }
 }

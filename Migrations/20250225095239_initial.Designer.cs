@@ -9,11 +9,11 @@ using centuras.org.Data;
 
 #nullable disable
 
-namespace centuras.org.Data.Migrations
+namespace centuras.org.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250220170054_Change User Name")]
-    partial class ChangeUserName
+    [Migration("20250225095239_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -269,7 +269,7 @@ namespace centuras.org.Data.Migrations
                         {
                             Id = "092e8775-aaa5-4ea6-9ccc-a9fa1e39d1a0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d7c89bf4-484d-409e-be06-7ce48e2f7059",
+                            ConcurrencyStamp = "cdfed05e-005f-4349-bae2-e64dbbba9969",
                             DateOfBirth = new DateOnly(1988, 8, 19),
                             Email = "tpscott@centuras.org",
                             EmailConfirmed = true,
@@ -278,9 +278,9 @@ namespace centuras.org.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TPSCOTT@CENTURAS.ORG",
                             NormalizedUserName = "TPSCOTT@CENTURAS.ORG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEnUtnXfVd7wQtsVQlzug3TU3v5MtfYYVL1J+QWWICjiYS8uafcbPraUoJayWk9LMA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPHhuDIgQQ3IVCAQRyzWhf5LgmlgP5J44QGxecEMiCbKyJ8OKd/2Jogw4Q9DStxsNw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9745ceef-c53a-43b6-9793-a63777ee909e",
+                            SecurityStamp = "1e8d88b7-daa2-4524-87d7-dc632bf69085",
                             TwoFactorEnabled = false,
                             UserName = "tpscott@centuras.org"
                         });
@@ -336,8 +336,14 @@ namespace centuras.org.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -345,6 +351,9 @@ namespace centuras.org.Data.Migrations
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ZipPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -370,12 +379,14 @@ namespace centuras.org.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CoverImage")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -383,6 +394,9 @@ namespace centuras.org.Data.Migrations
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ZipPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

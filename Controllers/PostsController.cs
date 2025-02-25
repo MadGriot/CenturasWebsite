@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace centuras.org.Controllers
 {
-
+    [Authorize(Roles = Roles.Administrator)]
     public class PostsController : Controller
     {
         private readonly IFileService fileService;
@@ -19,7 +19,6 @@ namespace centuras.org.Controllers
             this.fileService = fileService;
         }
 
-        [Authorize(Roles = Roles.Administrator)]
         public async Task<IActionResult> Index()
         {
             List<Post> posts = await context.Posts.Include(s => s.Category)
@@ -104,6 +103,8 @@ namespace centuras.org.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [AllowAnonymous]
         public async Task<IActionResult> Post(int id)
         {
             Post post = await context.Posts.FirstOrDefaultAsync(x => x.Id == id);
@@ -112,6 +113,7 @@ namespace centuras.org.Controllers
 
 
         [HttpGet, ActionName("Download")]
+        [AllowAnonymous]
         public async Task<FileResult> DownloadFile(int id)
         {
            

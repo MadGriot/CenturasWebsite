@@ -1,14 +1,20 @@
 ﻿@model centuras.org.Models.Game
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Create Game";
 }
 <link href="~/lib/trumbowyg-main/dist/ui/trumbowyg.min.css" rel="stylesheet" />
-<h3>Create a Game</h3>
+<h3>Publish a Game</h3>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" enctype="multipart/form-data" method="post">
     <div class="form-group">
         <label for="Title">Title</label>
         <input type="text" class="form-control" asp-for="Title" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" rows="5" asp-for="Description"></textarea>
     </div>
     <div class="form-group">
         <label for="Content">Content</label>
@@ -16,7 +22,15 @@
     </div>
     <div class="form-group">
         <label for="Author">Author</label>
-        <input type="text" class="form-control" asp-for="Author" />
+        <input type="text" class="form-control" asp-for="Author" value="@UserManager.GetUserAsync(User).Result?.FirstName @UserManager.GetUserAsync(User).Result?.LastName" />
+    </div>
+    <div class="form-group">
+        <label for="RawImage">Choose Image</label>
+        <input type="file" class="form-control" asp-for="RawImage" />
+    </div>
+    <div class="form-group">
+        <label for="ZipFile">Game file (zip)</label>
+        <input type="file" class="form-control" asp-for="ZipFile" />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

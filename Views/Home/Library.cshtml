@@ -6,11 +6,17 @@
 <div class="container" align="center">
     <h3>@Model.First().Category?.Name</h3>
     <br/>
+    <p>This website uses trademarks and/or copyrights 
+        owned by Paizo Inc., used under Paizo's Community Use 
+        Policy (<a href="https://paizo.com/licenses/communityuse">paizo.com /licenses/communityuse</a>). We are expressly prohibited from charging you to
+        use or access this content. The content on this website is not published, 
+        endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href="https://paizo.com/">paizo.com</a>.
+    </p>
     <br/>
     <div class="row g-3">
         @foreach (Post post in Model.OrderByDescending(x => x.CreatedDate))
         {
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="card bg-dark h-100">
                         <div class="card-header" align="center">
                         <h5 class="card-title">@post.Title</h5>
